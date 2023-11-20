@@ -18,6 +18,7 @@ export default function BookForm() {
         title,
         author,
         id: uuidv4(),
+        isFavorite: false,
       };
       dispatch(addBook(book));
 
@@ -33,6 +34,7 @@ export default function BookForm() {
     const randomBookWithID = {
       ...randomBook,
       id: uuidv4(),
+      isFavorite: false,
     };
 
     dispatch(addBook(randomBookWithID));
