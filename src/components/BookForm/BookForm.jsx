@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 import { addBook } from "../../redux/books/actionCreators";
 import "./BookForm.css";
 
@@ -15,6 +16,7 @@ export default function BookForm() {
       const book = {
         title,
         author,
+        id: uuidv4(),
       };
       dispatch(addBook(book));
 
@@ -32,7 +34,7 @@ export default function BookForm() {
           <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
         </div>
         <div>
-          <label htmlFor="author">Title:</label>
+          <label htmlFor="author">Author:</label>
           <input type="text" id="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
         </div>
         <button type="submit">Add Book</button>
